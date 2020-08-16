@@ -2,10 +2,10 @@ from subprocess import run, PIPE
 
 
 def set_volume(percent: str):
-    process = run('pacmd list-sinks | grep index', stdout=PIPE, shell=True, executable='/bin/bash')
+    process = run('pacmd list-sinks | grep index', capture_output=True, shell=True, executable='/bin/bash')
     sinks = str(process.stdout)[2:-1].replace('\\t', '').rstrip('\\n').split('\\n')
     for sink in sinks:
-        sink_index = sink.strip().split(' ')[1]
+        sink_index = sink.strip().split(' ')[-1]
         run('pactl -- set-sink-volume {} {}%'.format(sink_index, percent), shell=True, executable='/bin/bash')
 
 
@@ -13,7 +13,7 @@ def set_device(index: str) -> str:
     process = run('pacmd set-default-sink {}'.format(index, ), capture_output=True, shell=True, executable='/bin/bash')
     if process.returncode != 0:
         return str(process.stderr)[2:-1]
-    process = run('pacmd list-sink-inputs | grep index', stdout=PIPE, shell=True, executable='/bin/bash')
+    process = run('pacmd list-sink-inputs | grep index', capture_output=True, shell=True, executable='/bin/bash')
     sinks = str(process.stdout)[2:-1].replace('\\t', '').rstrip('\\n').split('\\n')
     error = ""
     for sink in sinks:
@@ -26,7 +26,7 @@ def set_device(index: str) -> str:
 
 
 def get_devices() -> list:
-    process = run('pacmd list-sinks | grep -E "device.description|index"', stdout=PIPE, shell=True,
+    process = run('pacmd list-sinks | grep -E "device.description|index"', capture_output=True, shell=True,
                   executable='/bin/bash')
     if process.returncode != 0:
         return list()
