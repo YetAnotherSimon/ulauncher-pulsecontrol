@@ -1,0 +1,26 @@
+{
+  "required_api_version": "^2.0.0",
+  "name": "PulseControl",
+  "description": "Ulauncher plugin to control pulseaudio",
+  "developer_name": "Simon Deckwert",
+  "icon": "images/Flat Mixer.png",
+  "options": {
+    "query_debounce": 0.1
+  },
+  "preferences": [
+    {
+      "id": "volume",
+      "type": "keyword",
+      "name": "Volume",
+      "description": "Control the volume",
+      "default_value": "volume"
+    },
+    {
+      "id": "device",
+      "type": "keyword",
+      "name": "Audio Device Switcher",
+      "description": "Choose your active audio device",
+      "default_value": "device"
+    }
+  ]
+}
