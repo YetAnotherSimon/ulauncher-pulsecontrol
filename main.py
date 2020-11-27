@@ -20,7 +20,6 @@ class PulseControl(Extension):
 class ItemEnterEventListener(EventListener):
     def on_event(self, event, extension):
         func, data = event.get_data()
-        LOGGER.info(func)
         if func == 'volume':
             set_volume(data)
             return get_volume_actions()
