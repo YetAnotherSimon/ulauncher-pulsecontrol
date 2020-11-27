@@ -2,11 +2,7 @@ from subprocess import run, PIPE
 
 
 def set_volume(percent: str):
-    process = run('pacmd list-sinks | grep index', capture_output=True, shell=True, executable='/bin/bash')
-    sinks = str(process.stdout)[2:-1].replace('\\t', '').rstrip('\\n').split('\\n')
-    for sink in sinks:
-        sink_index = sink.strip().split(' ')[-1]
-        run('pactl -- set-sink-volume {} {}%'.format(sink_index, percent), shell=True, executable='/bin/bash')
+    run('pactl set-sink-volume @DEFAULT_SINK@ {}%'.format(percent), shell=True, executable='/bin/bash')
 
 
 def set_device(index: str) -> str:
