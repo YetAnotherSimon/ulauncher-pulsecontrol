@@ -26,7 +26,7 @@ def get_devices() -> list:
                   executable='/bin/bash')
     if process.returncode != 0:
         return list()
-    devices = str(process.stdout)[2:-1].replace('\\t', '').rstrip('\\n').split('\\n')
+    devices = process.stdout.decode('utf-8').replace('\t', '').rstrip('\n').split('\n')
     output = list()
     for i in range(0, len(devices), 2):
         index = devices[i].split(' ')[-1]
