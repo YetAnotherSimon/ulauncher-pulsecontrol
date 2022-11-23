@@ -1,7 +1,7 @@
 {
   "required_api_version": "^2.0.0",
   "name": "PulseControl",
-  "description": "Ulauncher plugin to control pulseaudio",
+  "description": "Ulauncher plugin to control pulseaudio/pipewire",
   "developer_name": "Simon Deckwert",
   "icon": "images/Flat Mixer.png",
   "options": {

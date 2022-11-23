@@ -1,25 +1,28 @@
 # Ulauncher-PulseControl
 
-_Ulauncher plugin to control pulseaudio_
+_Ulauncher plugin to control pulseaudio/pipewire_
 
 This plugin is meant to be used to quickly change audio device and set the current volume.
 
 ## Usage
 
-You need to use pulseaudio for this plugin to work.
+Your system needs to use pulseaudio or pipewire with pulseaudio support for this plugin to work.
 
 ### Volume
 
-Per default, use 'volume' to change your volume. You have different pre-describing options, but you may also just type a percentage (without trailing percentage character) after 'volume' to set the volume to any given percentage. Anyway, all audio devices will be changed to the new volume.
+The default keyword is 'volume'. You are offered several shortcut options for convenience, but you can also type in a
+number between 0 and 100 to set the volume of the default output device to that percentage value.
 
 ### Device
 
-Per default, use 'device' to get a selection of your current audio devices. If you choose on, all current audio streams will be moved to this device and the device will be set default for all future streams.
+The default keyword is 'device'. Without any arguments, it will show a list of your audio devices. Selecting one will 
+set it as the default output device. You can also type in the name of the device to narrow the selection.
 
 ## Suggestions
 
-If you have any suggestions (or if you encounter any errors), feel free to create an issue.
-The plugin was build on one day and without the intention to e.g. support multiple audio streams on different sinks. Anyway, I think it's easily is possible, so if you want it, feel free to create an issue for it aswell.
+If you have any suggestions or if you encounter any problems, you can always create an issue.
+The plugin was built in ~~one~~ two days without intention to create a big thing. But I'm open to any suggestions and 
+pull requests.
 
 ## License
 
