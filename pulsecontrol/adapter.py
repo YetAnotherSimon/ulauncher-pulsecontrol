@@ -9,11 +9,11 @@ class DriverException(Exception):
 
 
 def _execute_pactl(cmd: str) -> str:
+    bash_command = '/usr/bin/env bash -c "pactl {}"'.format(cmd)
     process = run(
-        'pactl {}'.format(cmd),
+        bash_command,
         capture_output=True,
-        shell=True,
-        executable='/bin/bash'
+        shell=True
     )
     if process.returncode != 0:
         raise DriverException(error_code=process.returncode, reason=process.stderr.decode('ascii'))
