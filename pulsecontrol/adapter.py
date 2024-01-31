@@ -1,3 +1,4 @@
+from os import environ
 from subprocess import run
 from json import loads
 
@@ -10,10 +11,16 @@ class DriverException(Exception):
 
 def _execute_pactl(cmd: str) -> str:
     bash_command = '/usr/bin/env bash -c "pactl {}"'.format(cmd)
+
+    # pactl fix for versions prior 16.0
+    env = environ.copy()
+    env['LC_NUMERIC'] = 'C'
+    
     process = run(
         bash_command,
         capture_output=True,
-        shell=True
+        shell=True,
+        env=env
     )
     if process.returncode != 0:
         raise DriverException(error_code=process.returncode, reason=process.stderr.decode('ascii'))
