@@ -3,7 +3,7 @@
   "name": "PulseControl",
   "description": "Ulauncher plugin to control pulseaudio/pipewire",
   "developer_name": "Simon Deckwert",
-  "icon": "images/Flat Mixer.png",
+  "icon": "images/flat_mixer.png",
   "options": {
     "query_debounce": 0.1
   },
