@@ -1,5 +1,7 @@
 # Ulauncher-PulseControl
 
+> Since I haven't used ulauncher for ages and aint active on Github anymore, I will archive this repository. Thanks for enjoying the work, and feel free to fork your own version.
+
 _Ulauncher plugin to control pulseaudio/pipewire_
 
 This plugin is meant to be used to quickly change audio device and set the current volume.
